@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
+import AllOptions from './containers/AllOptions'
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
         <h1>
           Pizzaaaa
         </h1>
+        <AllOptions />
       </div>
     )
   }
