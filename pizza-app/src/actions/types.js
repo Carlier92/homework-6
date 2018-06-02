@@ -1,1 +1,1 @@
-export const CREATE_GAME = 'CREATE_GAME'
+export const PICK_BASE = 'PICK_BASE'
