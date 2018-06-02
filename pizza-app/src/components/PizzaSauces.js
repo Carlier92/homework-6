@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 
-class RadioComponent extends PureComponent {
+class PizzaSauces extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            size: 0
+            value: []
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -15,7 +13,7 @@ class RadioComponent extends PureComponent {
 
     handleChange(event) {
         this.setState({
-            size: event.target.value
+            value: event.target.value
         })
     }
 
@@ -27,25 +25,19 @@ class RadioComponent extends PureComponent {
     render() {
         
         return (
-            this.props.data.map(item => {
+            this.props.data.map(PizzaSauces => {
                 return (<label>
                     <input
                         type="radio"
-                        // value="small"
-                        // checked={this.state.size === "small"}
+                        value={this.state.value}
+                        checked={this.state.value === PizzaSauces.name}
                         onChange={this.handleChange}
                     />
-                    {item.name}
+                    Name: {PizzaSauces.name} Price: {PizzaSauces.price}
                 </label>)
             })
         )
     }
 }
 
-// const mapStateToProps = ({ selectedWord, lettersGuessed }) => {
-//     return {
-//         hiddenWord: showGuess(selectedWord, lettersGuessed),
-//     }
-// }
-
-export default RadioComponent
+export default PizzaSauces

@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import {pizzaBases, pizzaSauces, pizzaToppings} from '../data/pizza-options'
-import RadioComponent from '../components/RadioComponent'
+import {bases, sauces, toppings} from '../data/pizza-options'
+import PizzaBases from '../components/PizzaBases'
+import PizzaSauces from '../components/PizzaSauces'
 
 class AllOptions extends PureComponent {
 
@@ -10,20 +11,21 @@ class AllOptions extends PureComponent {
         
         return (
             <form>
-                <RadioComponent data={pizzaBases} />
-                <RadioComponent data={pizzaSauces} />
+                <PizzaBases data={bases} />
+                <PizzaSauces data={sauces} />
                 {/* <CheckBoxComponent data={pizzaToppings} /> */}
             </form>
         )
     }
 }
 
-const mapStateToProps = ({ pizzaBases, pizzaSauces, pizzaToppings, RadioComponent }) => {
+const mapStateToProps = ({ bases, sauces, toppings, PizzaBases, PizzaSauces }) => {
     return {
-        pizzaBases, 
-        pizzaSauces, 
-        pizzaToppings,
-        RadioComponent
+        PizzaBases, 
+        PizzaSauces, 
+        toppings,
+        bases,
+        sauces
     }
 }
 
