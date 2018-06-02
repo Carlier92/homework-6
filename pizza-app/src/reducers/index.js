@@ -1,5 +1,7 @@
-// import pickBase from './pickBase'
+import pickPizza from './pickPizza'
+import all from './all'
 
-// export default {
-// 	pickBase
-// }
+export default {
+    pickPizza,
+    all
+}

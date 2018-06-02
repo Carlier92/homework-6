@@ -1,4 +1,7 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+
+import {pickPizza} from '../reducers/index'
 
 class PizzaBases extends PureComponent {
     constructor(props) {
@@ -17,6 +20,12 @@ class PizzaBases extends PureComponent {
         })
     }
 
+    // handleOptionChange: function (changeEvent) {
+    //     this.setState({
+    //       selectedOption: changeEvent.target.value
+    //     });
+    //   },
+
     handleSubmit(event) {
         event.preventDefault();
         // alert(`You chose the ${this.state.size} pizza.`);
@@ -30,7 +39,7 @@ class PizzaBases extends PureComponent {
                     <input
                         type="radio"
                         value={this.state.value}
-                        checked={this.state.value === pizzaBases.name} //actions toevoegen en daar de onclick doen??
+                        // checked={this.state.value === this.props.pickPizza} //actions toevoegen en daar de onclick doen??
                         onChange={this.handleChange}
                     />
                     Name: {pizzaBases.name} Size: {pizzaBases.size} Price: {pizzaBases.price}
