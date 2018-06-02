@@ -30,7 +30,7 @@ class PizzaBases extends PureComponent {
                     <input
                         type="radio"
                         value={this.state.value}
-                        checked={this.state.value === pizzaBases.name}
+                        checked={this.state.value === pizzaBases.name} //actions toevoegen en daar de onclick doen??
                         onChange={this.handleChange}
                     />
                     Name: {pizzaBases.name} Size: {pizzaBases.size} Price: {pizzaBases.price}
