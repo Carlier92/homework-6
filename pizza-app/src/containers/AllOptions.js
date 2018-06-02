@@ -6,12 +6,25 @@ import PizzaBases from '../components/PizzaBases'
 import PizzaSauces from '../components/PizzaSauces'
 
 class AllOptions extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            pickedBase: ""
+        }
+        this.callback = this.callback.bind(this)
+    }
+    callback(childState) {
+        this.setState({
+            pickedBase: childState
+        })
+    }
 
     render() {
+        console.log(this.state.pickedBase);
         
         return (
             <form>
-                <PizzaBases data={bases} />
+                <PizzaBases callback={this.callback} data={bases} />
                 <PizzaSauces data={sauces} />
                 {/* <CheckBoxComponent data={pizzaToppings} /> */}
             </form>

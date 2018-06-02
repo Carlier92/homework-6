@@ -7,17 +7,20 @@ class PizzaBases extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            value: []
+            pickedBase: ""
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleChange(name) {
         this.setState({
-            value: event.target.value
+            pickedBase: name
         })
+        setTimeout(() => {
+            this.props.callback(this.state.pickedBase)
+        }, 10)
     }
 
     // handleOptionChange: function (changeEvent) {
@@ -32,17 +35,19 @@ class PizzaBases extends PureComponent {
     }
 
     render() {
-        
+        const { pickedBase } = this.state
         return (
-            this.props.data.map(pizzaBases => {
+            this.props.data.map(pizzaBase => {
+                const {name, id, size, price} = pizzaBase;
                 return (<label>
                     <input
+                        key={name + id}
                         type="radio"
-                        value={this.state.value}
-                        // checked={this.state.value === this.props.pickPizza} //actions toevoegen en daar de onclick doen??
-                        onChange={this.handleChange}
+                        value={pickedBase}
+                        checked={pickedBase === name}
+                        onChange={() => this.handleChange(name)}
                     />
-                    Name: {pizzaBases.name} Size: {pizzaBases.size} Price: {pizzaBases.price}
+                    Name: {name} Size: {size} Price: {price}
                 </label>)
             })
         )
