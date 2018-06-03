@@ -5,6 +5,7 @@ import {bases, sauces, toppings} from '../data/pizza-options'
 import PizzaBases from '../components/PizzaBases'
 import PizzaSauces from '../components/PizzaSauces'
 import PizzaToppings from '../components/PizzaToppings'
+import { pickPizza } from  '../reducers'
 
 class AllOptions extends PureComponent {
     constructor(props) {
@@ -38,7 +39,7 @@ class AllOptions extends PureComponent {
     }
 
     render() {
-        console.log(this.state);
+        // console.log(this.props.selected);
         
         return (
             <form>
@@ -59,13 +60,9 @@ class AllOptions extends PureComponent {
     }
 }
 
-const mapStateToProps = ({ bases, sauces, toppings, PizzaBases, PizzaSauces }) => {
+const mapStateToProps = ({ pickPizza }) => {
     return {
-        PizzaBases, 
-        PizzaSauces, 
-        toppings,
-        bases,
-        sauces
+        selected: pickPizza
     }
 }
 
