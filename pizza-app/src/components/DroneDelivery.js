@@ -26,7 +26,7 @@ class DroneDelivery extends PureComponent {
                     value={this.props.delivery}
                     onChange={this.handleChange}
                 />
-                Drone delivery yo
+                Drone delivery yo + 10%
             </label>
         )
     }
