@@ -1,1 +1,6 @@
-export const CREATE_GAME = 'CREATE_GAME'
+export const SELECTED_PIZZA = 'SELECTED_PIZZA'
+export const ADD_BASE = 'ADD_BASE'
+export const ADD_SAUCE = 'ADD_SAUCE'
+export const ADD_TOPPINGS = 'ADD_TOPPINGS'
+export const ADD_UPGRADE = 'ADD_UPGRADE'
+

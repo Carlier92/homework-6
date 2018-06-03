@@ -1,0 +1,23 @@
+.form-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.bases, .sauces, .toppings, .price, .delivery {
+    display: flex;
+    /* margin: 2rem; */
+    flex-direction: column;
+    text-align: left;
+}
+
+label {
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
