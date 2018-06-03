@@ -31,7 +31,7 @@ class PizzaBases extends PureComponent {
                             checked={this.props.pickedBase.name === name}
                             onChange={this.handleChange}
                         />
-                        Base: {name} Size: {size} Price: {price.toFixed(2)}
+                        Base: {name} Size: {size} Price: €{price.toFixed(2)}
                     </label>
                 )
             })

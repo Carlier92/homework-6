@@ -12,20 +12,27 @@ class AllOptions extends PureComponent {
         return (
             <form>
                 <ul className="form-list">
+                    <p>Choose your Base:</p>
                     <li className="bases">
                         <PizzaBases data={bases} />
                     </li>
+
+                    <p>Choose your Sauce:</p>
                     <li className="sauces">
                         <PizzaSauces data={sauces} />
                     </li>
 
+                    <p>Choose your Toppings:</p>
                     <li className="toppings">
                         <PizzaToppings data={toppings} />
                     </li>
+
+                    <p>Can't wait, and wanna be cool?</p>
                     <li className="delivery">
                         <DroneDelivery />
                     </li>
-                    <li className="toppings">
+
+                    <li className="price">
                         <PizzaPrice />
                     </li>
                 </ul>

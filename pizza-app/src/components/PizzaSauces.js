@@ -24,7 +24,7 @@ class PizzaSauces extends PureComponent {
     render() {
         return (
             this.props.data.map(pizzaSauce => {
-                const { name, id, size, price } = pizzaSauce;
+                const { name, id, price } = pizzaSauce;
                 return (
                     <label key={`${name}${id}`}>
                         <input
@@ -33,7 +33,7 @@ class PizzaSauces extends PureComponent {
                             checked={this.props.pickedSauce.name === name}
                             onChange={this.handleChange}
                         />
-                        Sauce: {name} Price: {price.toFixed(2)}
+                        Sauce: {name} Price: €{price.toFixed(2)}
                     </label>
                 )
             })

@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>
-          Create your tastiest Pizza ever Bram:
+          Create your tastiest Pizza ever:
         </h1>
         <AllOptions />
       </div>
