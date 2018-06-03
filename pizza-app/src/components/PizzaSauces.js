@@ -33,7 +33,7 @@ class PizzaSauces extends PureComponent {
                             checked={this.props.pickedSauce.name === name}
                             onChange={this.handleChange}
                         />
-                        Name: {name} Size: {size} Price: {price.toFixed(2)}
+                        Sauce: {name} Price: {price.toFixed(2)}
                     </label>
                 )
             })

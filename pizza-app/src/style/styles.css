@@ -4,14 +4,19 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
 }
 
-.bases, .sauces, .toppings, .delivery {
+.bases, .sauces, .toppings {
     display: flex;
     margin: 2rem;
 }
 
-.toppings {
-    flex-direction: column
+.toppings, .delivery {
+    flex-direction: column;
+    text-align: left;
+}
+
+.delivery {
+    margin-left: 2rem;
 }

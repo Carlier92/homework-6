@@ -41,7 +41,7 @@ class PizzaToppings extends PureComponent {
                             checked={this.setCheck(name)}
                             onChange={this.handleChange}
                         />
-                        Name: {name} Price: {price.toFixed(2)}
+                        Topping: {name}         Price: {price.toFixed(2)}
                     </label>
                 )
             })
