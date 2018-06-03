@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
-import {pickPizza} from '../reducers/index'
+// import {pickPizza} from '../reducers/index'
 
 class PizzaBases extends PureComponent {
     constructor(props) {
@@ -20,18 +20,11 @@ class PizzaBases extends PureComponent {
         })
         setTimeout(() => {
             this.props.callback(this.state.pickedBase)
-        }, 10)
+        }, 10) //hacky way voor het werken van de eerste klik. refactoren naar betere promiss? 
     }
 
-    // handleOptionChange: function (changeEvent) {
-    //     this.setState({
-    //       selectedOption: changeEvent.target.value
-    //     });
-    //   },
-
     handleSubmit(event) {
-        event.preventDefault();
-        // alert(`You chose the ${this.state.size} pizza.`);
+        event.preventDefault()
     }
 
     render() {
@@ -55,3 +48,5 @@ class PizzaBases extends PureComponent {
 }
 
 export default PizzaBases
+
+//proberen om deze state naar de redux state te krijgen. 

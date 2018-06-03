@@ -1,43 +1,52 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 
-class PizzaSauces extends PureComponent {
+// import {pickPizza} from '../reducers/index'
+
+class PizzaSauce extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            value: []
+            pickedSauce: ""
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleChange(name) {
         this.setState({
-            value: event.target.value
+            pickedSauce: name
         })
+        setTimeout(() => {
+            this.props.callback(this.state.pickedSauce)
+        }, 10) //hacky way voor het werken van de eerste klik. refactoren naar betere promiss? 
     }
 
     handleSubmit(event) {
-        event.preventDefault();
-        // alert(`You chose the ${this.state.size} pizza.`);
+        event.preventDefault()
     }
 
     render() {
-        
+        const { pickedSauce } = this.state
         return (
-            this.props.data.map(PizzaSauces => {
+            this.props.data.map(PizzaSauce => {
+                const {name, id, size, price} = PizzaSauce;
                 return (<label>
                     <input
+                        key={name + id}
                         type="radio"
-                        value={this.state.value}
-                        checked={this.state.value === PizzaSauces.name}
-                        onChange={this.handleChange}
+                        value={pickedSauce}
+                        checked={pickedSauce === name}
+                        onChange={() => this.handleChange(name)}
                     />
-                    Name: {PizzaSauces.name} Price: {PizzaSauces.price}
+                    Name: {name} Price: {price}
                 </label>)
             })
         )
     }
 }
 
-export default PizzaSauces
+//proberen om deze state naar de redux state te krijgen. 
+
+export default PizzaSauce

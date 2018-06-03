@@ -9,13 +9,15 @@ class AllOptions extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            pickedBase: ""
+            pickedBase: "",
+            pickedSauce: ""
         }
         this.callback = this.callback.bind(this)
     }
     callback(childState) {
         this.setState({
-            pickedBase: childState
+            pickedBase: childState,
+            pickedSauce: childState
         })
     }
 
@@ -25,7 +27,7 @@ class AllOptions extends PureComponent {
         return (
             <form>
                 <PizzaBases callback={this.callback} data={bases} />
-                <PizzaSauces data={sauces} />
+                <PizzaSauces callback={this.callback} data={sauces} />
                 {/* <CheckBoxComponent data={pizzaToppings} /> */}
             </form>
         )
