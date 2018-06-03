@@ -7,7 +7,7 @@
     text-align: left;
 }
 
-.bases, .sauces, .toppings {
+.bases, .sauces, .toppings, .delivery {
     display: flex;
     margin: 2rem;
 }

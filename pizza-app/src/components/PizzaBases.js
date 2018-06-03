@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { selectBase } from '../actions/pizza'
-import { simpleAction } from '../actions/pizza'
-
 
 class PizzaBases extends PureComponent {
     constructor(props) {
@@ -23,8 +21,8 @@ class PizzaBases extends PureComponent {
     render() {
         return (
             this.props.data.map((pizzaBase, index) => {
-                const {name, id, size, price} = pizzaBase;
-                
+                const { name, id, size, price } = pizzaBase;
+
                 return (
                     <label key={`${name}${id}`}>
                         <input
@@ -50,5 +48,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PizzaBases);
-
-//proberen om deze state naar de redux state te krijgen. 

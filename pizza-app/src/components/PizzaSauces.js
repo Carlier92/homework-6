@@ -24,7 +24,7 @@ class PizzaSauces extends PureComponent {
     render() {
         return (
             this.props.data.map(pizzaSauce => {
-                const {name, id, size, price} = pizzaSauce;
+                const { name, id, size, price } = pizzaSauce;
                 return (
                     <label key={`${name}${id}`}>
                         <input
@@ -50,5 +50,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PizzaSauces);
-
-//proberen om deze state naar de redux state te krijgen. 

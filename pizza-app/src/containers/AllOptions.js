@@ -1,13 +1,11 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import {bases, sauces, toppings} from '../data/pizza-options'
+import { bases, sauces, toppings } from '../data/pizza-options'
 import PizzaBases from '../components/PizzaBases'
 import PizzaSauces from '../components/PizzaSauces'
 import PizzaToppings from '../components/PizzaToppings'
 import PizzaPrice from '../components/PizzaPrice'
 import DroneDelivery from '../components/DroneDelivery'
-import { pickPizza } from  '../reducers'
 
 class AllOptions extends PureComponent {
     render() {
@@ -15,7 +13,7 @@ class AllOptions extends PureComponent {
             <form>
                 <ul className="form-list">
                     <li className="bases">
-                        <PizzaBases  data={bases} />
+                        <PizzaBases data={bases} />
                     </li>
                     <li className="sauces">
                         <PizzaSauces data={sauces} />

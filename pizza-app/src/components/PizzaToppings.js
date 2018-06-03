@@ -10,7 +10,7 @@ class PizzaToppings extends PureComponent {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
+
     handleChange(e) {
         this.props.selectToppingsAction(e.target.value)
     }
@@ -22,17 +22,17 @@ class PizzaToppings extends PureComponent {
     setCheck(name) {
         let check = false
         this.props.pickedToppings.forEach(topping => {
-            if(topping.name === name) {
+            if (topping.name === name) {
                 check = true
             }
         })
         return check
     }
 
-    render() {        
+    render() {
         return (
             this.props.data.map(topping => {
-                const {name, id, price} = topping
+                const { name, id, price } = topping
                 return (
                     <label key={`${name}${id}`}>
                         <input
@@ -58,5 +58,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PizzaToppings);
-
-//proberen om deze state naar de redux state te krijgen. 

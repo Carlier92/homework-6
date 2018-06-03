@@ -21,6 +21,3 @@ export const bases = [ //radio button
     {id: 6, name: 'Cherry tomatoes', price: 0.50},
     {id: 7, name: 'Chicken', price: 0.50}
   ]
-  
-  // _Rules: max. 3 toppings, toppings cost € 0,50 apiece_
-  //

@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { droneDeliverey } from '../actions/pizza'
-import calculatePrice from './PizzaPrice'
-
 
 class DroneDelivery extends PureComponent {
     constructor(props) {
@@ -23,12 +21,12 @@ class DroneDelivery extends PureComponent {
     render() {
         return (
             <label>
-                DroneDelivery:
                 <input
                     type="checkbox"
                     value={this.props.delivery}
                     onChange={this.handleChange}
                 />
+                Drone delivery yo
             </label>
         )
     }
@@ -37,7 +35,7 @@ class DroneDelivery extends PureComponent {
 const mapStateToProps = ({ pickPizza, calculatePrice }) => ({
     pickedPizza: pickPizza,
     delivery: pickPizza.droneUpgrade
-    
+
 })
 
 const mapDispatchToProps = dispatch => ({

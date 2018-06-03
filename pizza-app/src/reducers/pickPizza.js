@@ -26,9 +26,7 @@ export default (state = { pizzaBase: {}, pizzaSauce: {}, pizzaToppings: [], dron
             }
 
         case ADD_UPGRADE:
-            // const upgrade = upgrade.filter(sauce => upgrade.name.includes(payload))[0]
-            // delete upgrade.id
-            return { ...state, droneUpgrade: payload}
+            return { ...state, droneUpgrade: payload }
 
         default:
             return state
