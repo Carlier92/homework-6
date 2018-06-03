@@ -1,15 +1,25 @@
-import { ADD_BASE, REMOVE_BASE } from './types'
+import { ADD_BASE, ADD_SAUCE, ADD_TOPPINGS } from './types'
 
-export const addBase = (base) => {
+export const selectBase = (base) => {
   return {
     type: ADD_BASE,
     payload: base
   }
 }
 
-export const removeBase = (base) => {
+export const selectSauce = (sauce) => {
   return {
-    type: REMOVE_BASE,
-    payload: base
+    type: ADD_SAUCE,
+    payload: sauce
   }
 }
+
+export const selectToppings = (toppings) => {
+  return {
+    type: ADD_TOPPINGS,
+    payload: toppings
+  }
+}
+
+
+

@@ -1,2 +1,4 @@
-// export const ADD_BASE = 'ADD_BASE'
-// export const REMOVE_BASE = 'REMOVE_BASE'
+export const SELECTED_PIZZA = 'SELECTED_PIZZA'
+export const ADD_BASE = 'ADD_BASE'
+export const ADD_SAUCE = 'ADD_SAUCE'
+export const ADD_TOPPINGS = 'ADD_TOPPINGS'

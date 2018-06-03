@@ -14,9 +14,9 @@ class PizzaBases extends PureComponent {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(name) {
+    handleChange(e) {
         this.setState({
-            pickedBase: name
+            pickedBase: e.target.value
         })
         setTimeout(() => {
             this.props.callbackBase(this.state.pickedBase)
@@ -32,16 +32,18 @@ class PizzaBases extends PureComponent {
         return (
             this.props.data.map(pizzaBase => {
                 const {name, id, size, price} = pizzaBase;
-                return (<label>
-                    <input
-                        key={name + id}
-                        type="radio"
-                        value={pickedBase}
-                        checked={pickedBase === name}
-                        onChange={() => this.handleChange(name)}
-                    />
-                    Name: {name} Size: {size} Price: {price}
-                </label>)
+                return (
+                    <label>
+                        <input
+                            key={name + id}
+                            type="radio"
+                            value={name}
+                            checked={pickedBase === name}
+                            onChange={this.handleChange}
+                        />
+                        Name: {name} Size: {size} Price: {price}
+                    </label>
+                )
             })
         )
     }
