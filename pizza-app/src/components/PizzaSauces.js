@@ -19,7 +19,7 @@ class PizzaSauce extends PureComponent {
             pickedSauce: name
         })
         setTimeout(() => {
-            this.props.callback(this.state.pickedSauce)
+            this.props.callbackSauce(this.state.pickedSauce)
         }, 10) //hacky way voor het werken van de eerste klik. refactoren naar betere promiss? 
     }
 

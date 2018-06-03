@@ -12,22 +12,30 @@ class AllOptions extends PureComponent {
             pickedBase: "",
             pickedSauce: ""
         }
-        this.callback = this.callback.bind(this)
+        this.callbackBase = this.callbackBase.bind(this)
+        this.callbackSauce = this.callbackSauce.bind(this)
+
     }
-    callback(childState) {
+
+    callbackBase(childState) {
         this.setState({
-            pickedBase: childState,
+            pickedBase: childState
+        })
+    }
+
+    callbackSauce(childState) {
+        this.setState({
             pickedSauce: childState
         })
     }
 
     render() {
-        console.log(this.state.pickedBase);
+        console.log(this.state);
         
         return (
             <form>
-                <PizzaBases callback={this.callback} data={bases} />
-                <PizzaSauces callback={this.callback} data={sauces} />
+                <PizzaBases callbackBase={this.callbackBase} data={bases} />
+                <PizzaSauces callbackSauce={this.callbackSauce} data={sauces} />
                 {/* <CheckBoxComponent data={pizzaToppings} /> */}
             </form>
         )
