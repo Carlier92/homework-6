@@ -1,56 +1,37 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { selectToppings } from '../actions/pizza'
+
 
 class PizzaToppings extends PureComponent {
     constructor(props) {
-        super(props);
-        this.state = {
-            pickedToppings: []
-        }
+        super(props)
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(e) {
-        if(this.state.pickedToppings.includes(e.target.value)) {
-            let stateCopy = [...this.state.pickedToppings]
-            stateCopy.splice(stateCopy.indexOf(e.target.value), 1);
-            
-            this.setState({
-                pickedToppings: stateCopy
-            })
-        } else {
-            this.setState({
-                pickedToppings: [e.target.value, ...this.state.pickedToppings]
-            })
-        }
-        
-        setTimeout(() => {
-            this.props.callbackTopping(this.state.pickedToppings)
-        }, 10) //hacky way voor het werken van de eerste klik. refactoren naar betere promiss? 
+        this.props.selectToppingsAction(e.target.value)
     }
 
     handleSubmit(event) {
         event.preventDefault()
     }
 
-    render() {
-        const { pickedToppings } = this.state
-        
+    render() {        
         return (
             this.props.data.map(topping => {
                 const {name, id, price} = topping
                 return (
-                    <label>
+                    <label key={`${name}${id}`}>
                         <input
-                            key={name + id}
                             type="checkbox"
                             value={name}
-                            checked={pickedToppings.includes(name)}
+                            checked={this.props.pickedToppings.includes(name)}
                             onChange={this.handleChange}
                         />
-                        Name: {name} Price: {price}
+                        Name: {name} Price: {price.toFixed(2)}
                     </label>
                 )
             })
@@ -58,6 +39,14 @@ class PizzaToppings extends PureComponent {
     }
 }
 
-export default PizzaToppings
+const mapStateToProps = ({ pickPizza }) => ({
+    pickedToppings: pickPizza.pizzaToppings
+})
+
+const mapDispatchToProps = dispatch => ({
+    selectToppingsAction: (value) => dispatch(selectToppings(value))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PizzaToppings);
 
 //proberen om deze state naar de redux state te krijgen. 

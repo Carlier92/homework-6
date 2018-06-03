@@ -3,13 +3,19 @@ export default (state = {pizzaBase: "", pizzaSauce: "", pizzaToppings: []}, { ty
     
     switch (type) {
         case ADD_BASE :
-            return {...state, pizzaBase: payload}
+            return { ...state, pizzaBase: payload }
 
         case ADD_SAUCE :
-            return {...state, pizzaBase: payload}
+            return { ...state, pizzaSauce: payload }
 
         case ADD_TOPPINGS :
-            return state.concat(payload)
+            if( state.pizzaToppings.includes( payload ) ) {
+                let pizzaToppingsCopy = [...state.pizzaToppings]
+                pizzaToppingsCopy.splice( pizzaToppingsCopy.indexOf( payload ), 1 );
+                return { ...state, pizzaToppings: pizzaToppingsCopy }
+            } else {
+                return { ...state, pizzaToppings: state.pizzaToppings.concat( payload ) }
+            }
 
         default:
             return state

@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { selectSauce } from '../actions/pizza'
 
-// import {pickPizza} from '../reducers/index'
-
-class PizzaSauce extends PureComponent {
+class PizzaSauces extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,12 +14,7 @@ class PizzaSauce extends PureComponent {
     }
 
     handleChange(e) {
-        this.setState({
-            pickedSauce: e.target.value
-        })
-        setTimeout(() => {
-            this.props.callbackSauce(this.state.pickedSauce)
-        }, 10) //hacky way voor het werken van de eerste klik. refactoren naar betere promiss? 
+        this.props.selectSauceAction(e.target.value)
     }
 
     handleSubmit(event) {
@@ -28,20 +22,18 @@ class PizzaSauce extends PureComponent {
     }
 
     render() {
-        const { pickedSauce } = this.state
         return (
-            this.props.data.map(PizzaSauce => {
-                const {name, id, price} = PizzaSauce;
+            this.props.data.map(pizzaSauce => {
+                const {name, id, size, price} = pizzaSauce;
                 return (
-                    <label>
+                    <label key={`${name}${id}`}>
                         <input
-                            key={name + id}
                             type="radio"
                             value={name}
-                            checked={pickedSauce === name}
+                            checked={this.props.pickedSauce === name}
                             onChange={this.handleChange}
                         />
-                        Name: {name} Price: {price}
+                        Name: {name} Size: {size} Price: {price.toFixed(2)}
                     </label>
                 )
             })
@@ -49,6 +41,14 @@ class PizzaSauce extends PureComponent {
     }
 }
 
-//proberen om deze state naar de redux state te krijgen. 
+const mapStateToProps = ({ pickPizza }) => ({
+    pickedSauce: pickPizza.pizzaSauce
+})
 
-export default PizzaSauce
+const mapDispatchToProps = dispatch => ({
+    selectSauceAction: (value) => dispatch(selectSauce(value))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PizzaSauces);
+
+//proberen om deze state naar de redux state te krijgen. 

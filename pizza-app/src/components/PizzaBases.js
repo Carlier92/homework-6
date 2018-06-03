@@ -3,14 +3,10 @@ import { connect } from 'react-redux'
 import { selectBase } from '../actions/pizza'
 import { simpleAction } from '../actions/pizza'
 
-// import {pickPizza} from '../reducers/index'
 
 class PizzaBases extends PureComponent {
     constructor(props) {
-        super(props);
-        this.state = {
-            pickedBase: ""
-        }
+        super(props)
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,21 +21,19 @@ class PizzaBases extends PureComponent {
     }
 
     render() {
-        const { pickedBase } = this.state
-        
         return (
-            this.props.data.map(pizzaBase => {
+            this.props.data.map((pizzaBase, index) => {
                 const {name, id, size, price} = pizzaBase;
+                
                 return (
-                    <label>
+                    <label key={`${name}${id}`}>
                         <input
-                            key={name + id}
                             type="radio"
                             value={name}
                             checked={this.props.pickedBase === name}
                             onChange={this.handleChange}
                         />
-                        Name: {name} Size: {size} Price: {price}
+                        Name: {name} Size: {size} Price: {price.toFixed(2)}
                     </label>
                 )
             })
