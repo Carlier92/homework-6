@@ -1,8 +1,8 @@
 export const bases = [ //radio button
-    {id: 1, name: 'NY25', size: 25, price: 8.99},
-    {id: 2, name: 'NY30', size: 30, price: 11.49},
-    {id: 3, name: 'NY35', size: 35, price: 13.49},
-    {id: 4, name: 'NY20', size: 20, price: 6.45}
+    {id: 1, name: 'NY20', size: 20, price: 6.45},
+    {id: 2, name: 'NY25', size: 25, price: 8.99},
+    {id: 3, name: 'NY30', size: 30, price: 11.49},
+    {id: 4, name: 'NY35', size: 35, price: 13.49}
   ]
 
   export const sauces = [ //radio buttons

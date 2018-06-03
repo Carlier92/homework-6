@@ -24,7 +24,7 @@ class PizzaPrice extends PureComponent {
         return (
             <div>
                 <h2>Total Pizza Price</h2>
-                <p className="total">Grand Total: € {this.calculatePrice()}</p>
+                <p className="total">€ {this.calculatePrice()}</p>
             </div>
         )
     }
