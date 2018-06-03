@@ -9,15 +9,7 @@ import PizzaPrice from '../components/PizzaPrice'
 import { pickPizza } from  '../reducers'
 
 class AllOptions extends PureComponent {
-    constructor(props) {
-        super(props);
-       
-    }
-
-    
     render() {
-        // console.log(this.props.selected);
-        
         return (
             <form>
                 <ul className="form-list">

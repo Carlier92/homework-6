@@ -21,7 +21,6 @@ class PizzaBases extends PureComponent {
     }
 
     render() {
-        console.log(this.props.pickedBase);
         return (
             this.props.data.map((pizzaBase, index) => {
                 const {name, id, size, price} = pizzaBase;
