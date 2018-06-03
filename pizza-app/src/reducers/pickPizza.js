@@ -1,20 +1,28 @@
 import { ADD_BASE, ADD_SAUCE, ADD_TOPPINGS } from '../actions/types'
-export default (state = {pizzaBase: "", pizzaSauce: "", pizzaToppings: []}, { type, payload } = {}) => {
+import { bases, sauces, toppings } from '../data/pizza-options'
+export default (state = {pizzaBase: {}, pizzaSauce: {}, pizzaToppings: []}, { type, payload } = {}) => {
     
     switch (type) {
         case ADD_BASE :
-            return { ...state, pizzaBase: payload }
+            const base = bases.filter( base => base.name.includes(payload))[0]
+            delete base.id
+            return { ...state, pizzaBase: base }
 
         case ADD_SAUCE :
-            return { ...state, pizzaSauce: payload }
+            const sauce = sauces.filter( sauce => sauce.name.includes(payload))[0]
+            delete sauce.id
+            return { ...state, pizzaSauce: sauce }
 
         case ADD_TOPPINGS :
-            if( state.pizzaToppings.includes( payload ) ) {
+            const topping = toppings.filter( topping => topping.name.includes(payload))[0]
+            delete topping.id
+
+            if( state.pizzaToppings.includes( topping ) ) {
                 let pizzaToppingsCopy = [...state.pizzaToppings]
-                pizzaToppingsCopy.splice( pizzaToppingsCopy.indexOf( payload ), 1 );
+                pizzaToppingsCopy.splice( pizzaToppingsCopy.indexOf( topping ), 1 );
                 return { ...state, pizzaToppings: pizzaToppingsCopy }
             } else {
-                return { ...state, pizzaToppings: state.pizzaToppings.concat( payload ) }
+                return { ...state, pizzaToppings: state.pizzaToppings.concat( topping ) }
             }
 
         default:

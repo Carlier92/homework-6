@@ -10,13 +10,23 @@ class PizzaToppings extends PureComponent {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    
     handleChange(e) {
         this.props.selectToppingsAction(e.target.value)
     }
 
     handleSubmit(event) {
         event.preventDefault()
+    }
+
+    setCheck(name) {
+        let check = false
+        this.props.pickedToppings.forEach(topping => {
+            if(topping.name === name) {
+                check = true
+            }
+        })
+        return check
     }
 
     render() {        
@@ -28,7 +38,7 @@ class PizzaToppings extends PureComponent {
                         <input
                             type="checkbox"
                             value={name}
-                            checked={this.props.pickedToppings.includes(name)}
+                            checked={this.setCheck(name)}
                             onChange={this.handleChange}
                         />
                         Name: {name} Price: {price.toFixed(2)}

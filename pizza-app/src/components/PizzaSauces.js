@@ -30,7 +30,7 @@ class PizzaSauces extends PureComponent {
                         <input
                             type="radio"
                             value={name}
-                            checked={this.props.pickedSauce === name}
+                            checked={this.props.pickedSauce.name === name}
                             onChange={this.handleChange}
                         />
                         Name: {name} Size: {size} Price: {price.toFixed(2)}

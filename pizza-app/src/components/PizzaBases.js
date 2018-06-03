@@ -21,6 +21,7 @@ class PizzaBases extends PureComponent {
     }
 
     render() {
+        console.log(this.props.pickedBase);
         return (
             this.props.data.map((pizzaBase, index) => {
                 const {name, id, size, price} = pizzaBase;
@@ -30,7 +31,7 @@ class PizzaBases extends PureComponent {
                         <input
                             type="radio"
                             value={name}
-                            checked={this.props.pickedBase === name}
+                            checked={this.props.pickedBase.name === name}
                             onChange={this.handleChange}
                         />
                         Name: {name} Size: {size} Price: {price.toFixed(2)}
