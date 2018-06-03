@@ -1,4 +1,4 @@
-import { ADD_BASE, ADD_SAUCE, ADD_TOPPINGS } from './types'
+import { ADD_BASE, ADD_SAUCE, ADD_TOPPINGS, ADD_UPGRADE } from './types'
 
 export const selectBase = (base) => {
   return {
@@ -18,6 +18,13 @@ export const selectToppings = (toppings) => {
   return {
     type: ADD_TOPPINGS,
     payload: toppings
+  }
+}
+
+export const droneDeliverey = (upgrade) => {
+  return {
+    type: ADD_UPGRADE,
+    payload: upgrade
   }
 }
 

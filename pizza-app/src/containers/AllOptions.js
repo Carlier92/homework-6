@@ -6,6 +6,7 @@ import PizzaBases from '../components/PizzaBases'
 import PizzaSauces from '../components/PizzaSauces'
 import PizzaToppings from '../components/PizzaToppings'
 import PizzaPrice from '../components/PizzaPrice'
+import DroneDelivery from '../components/DroneDelivery'
 import { pickPizza } from  '../reducers'
 
 class AllOptions extends PureComponent {
@@ -22,6 +23,9 @@ class AllOptions extends PureComponent {
 
                     <li className="toppings">
                         <PizzaToppings data={toppings} />
+                    </li>
+                    <li className="delivery">
+                        <DroneDelivery />
                     </li>
                     <li className="toppings">
                         <PizzaPrice />
